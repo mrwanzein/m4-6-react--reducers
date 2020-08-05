@@ -6,7 +6,7 @@ import TicketWidget from './TicketWidget';
 
 function App() {
   const {
-      actions: { receiveSeatInfoFromServer }, state
+      actions: { receiveSeatInfoFromServer }
     } = React.useContext(SeatContext);
 
 React.useEffect(() => {
