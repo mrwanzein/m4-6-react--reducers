@@ -15,11 +15,18 @@ const Seat = ({seatsPerRow, rowName, getSeatNum, state}) => {
                 
                 return(
                 <SeatWrapper key={seatId} disabled={state.bookedSeats[seatId] ? true : false}>
-                    <Tippy content={`Row ${rowName}, Seat ${seatIndex + 1} -- $${state.seats[seatId].price}`}>
-                    <img alt="Blue venue seat" src={SeatAsset} id={seatId} style={
-                        state.bookedSeats[seatId] ? {filter: "grayscale(100%)"} : null
-                    }/>
-                    </Tippy>
+                    {
+                        !state.bookedSeats[seatId] ? 
+                        <Tippy content={`Row ${rowName}, Seat ${seatIndex + 1} -- $${state.seats[seatId].price}`}>
+                        <img alt="Blue venue seat" src={SeatAsset} id={seatId} style={
+                            state.bookedSeats[seatId] ? {filter: "grayscale(100%)"} : null
+                        }/>
+                        </Tippy>
+                        :
+                        <img alt="Blue venue seat" src={SeatAsset} id={seatId} style={
+                            state.bookedSeats[seatId] ? {filter: "grayscale(100%)"} : null
+                        }/>
+                    }
                 </SeatWrapper>
                 )
             })}
